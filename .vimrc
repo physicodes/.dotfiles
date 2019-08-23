@@ -9,3 +9,4 @@ set expandtab " insert spaces when TAB is pressed
 " UI
 set relativenumber " show relative line numbering
 set colorcolumn=80 " show ruler
+set cursorline " underline current line
