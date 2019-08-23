@@ -8,3 +8,4 @@ set expandtab " insert spaces when TAB is pressed
 
 " UI
 set number " show line numbering
+set colorcolumn=80 " show ruler
