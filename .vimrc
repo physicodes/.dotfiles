@@ -7,5 +7,5 @@ set softtabstop=4 " number of spaces in TAB when editing
 set expandtab " insert spaces when TAB is pressed
 
 " UI
-set number " show line numbering
+set relativenumber " show relative line numbering
 set colorcolumn=80 " show ruler
