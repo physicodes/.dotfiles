@@ -22,3 +22,8 @@ fi
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
+
+# start user defined tasks
+
+setxkbmap -option caps:escape # remap caps lock to esc
+exec i3 # start i3
