@@ -26,4 +26,5 @@ fi
 # start user defined tasks
 
 setxkbmap -option caps:escape # remap caps lock to esc
+mons -o # output only through DP (not HDMI)
 exec i3 # start i3
