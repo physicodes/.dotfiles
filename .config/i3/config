@@ -163,11 +163,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
+# Status bar 
+# bar {
+#        status_command i3status # default status bar
+#}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh # start polybar
 
 for_window [class="^.*"] border pixel 5
 gaps inner 20
