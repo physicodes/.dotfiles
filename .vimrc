@@ -12,10 +12,9 @@ set colorcolumn=80 " show ruler
 let g:powerline_pycmd="py3" " run powerline in python 3 
 set laststatus=2 " show powerline all the time
 
+" Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
 Plug 'Valloric/YouCompleteMe'
-" Initialize plugin system
+
 call plug#end()
