@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -175,7 +175,4 @@ gaps outer 10
 smart_gaps on
 smart_borders no_gaps
 
-border_radius 4
-
-exec nitrogen /Pictures/Wallpaper/
 exec nm-applet
