@@ -175,6 +175,6 @@ gaps outer 10
 smart_gaps on
 smart_borders no_gaps
 
-exec_always feh --bg-scale ~/Downloads/wall1.jpg
+exec_always feh --randomize --bg-scale ~/Pictures/Wallpaper/*
 exec nm-applet
 exec xbanish
