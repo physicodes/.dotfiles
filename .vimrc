@@ -7,7 +7,7 @@ set softtabstop=4 " number of spaces in TAB when editing
 set expandtab " insert spaces when TAB is pressed
 
 " UI
-set relativenumber " show relative line numbering
+set number " show numbering
 set colorcolumn=80 " show ruler
 let g:powerline_pycmd="py3" " run powerline in python 3 
 set laststatus=2 " show powerline all the time
