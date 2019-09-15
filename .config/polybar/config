@@ -1,6 +1,19 @@
 [bar/mybar]
-modules-right = date
+monitor = DisplayPort-2
+bottom = true
+tray-position = right
+modules-right = date wireless-network
+modules-left = i3
+separator = " | "
+height = 3%
 
 [module/date]
 type = internal/date
 date = %Y-%m-%d%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+
+[module/i3]
+type = internal/i3
