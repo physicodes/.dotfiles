@@ -176,5 +176,4 @@ smart_gaps on
 smart_borders no_gaps
 
 exec_always feh --randomize --bg-fill ~/Pictures/Wallpaper/*
-exec nm-applet
 exec xbanish
