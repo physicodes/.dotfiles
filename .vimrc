@@ -1,18 +1,5 @@
-" Colours
-syntax enable " enable syntax highlighting
-
-" Spaces & Tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set textwidth=79
-set expandtab
-set autoindent
-set fileformat=unix
-
 " UI
 set number " show numbering
-set colorcolumn=80 " show ruler
 let g:powerline_pycmd="py3" " run powerline in python 3 
 set laststatus=2 " show powerline all the time
 
@@ -23,6 +10,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Spellcheck
+autocmd FileType text setlocal spell spelllang=en_gb
+autocmd FileType markdown setlocal spell spelllang=en_gb
 
 " Nerdtree
 map <C-O> :NERDTreeToggle<CR>
