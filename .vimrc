@@ -1,7 +1,5 @@
 " UI
 set number " show numbering
-let g:powerline_pycmd="py3" " run powerline in python 3 
-set laststatus=2 " show powerline all the time
 
 " Window Splits
 set splitbelow
