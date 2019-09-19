@@ -3,9 +3,15 @@ set number " show numbering
 let g:powerline_pycmd="py3" " run powerline in python 3 
 set laststatus=2 " show powerline all the time
 
-" More Natural Window Splits
+" Window Splits
 set splitbelow
 set splitright
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " Nerdtree
 map <C-O> :NERDTreeToggle<CR>
