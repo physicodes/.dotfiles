@@ -1,6 +1,7 @@
 " UI
 set number " show numbering
 set laststatus=2 " nescessary for lightline
+set noshowmode " status info redundant with lightline
 
 " Window Splits
 set splitbelow
