@@ -1,5 +1,6 @@
 " UI
 set number " show numbering
+set laststatus=2 " nescessary for lightline
 
 " Window Splits
 set splitbelow
@@ -34,6 +35,7 @@ filetype plugin on
 " Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
+Plug 'itchyny/lightline.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'lervag/vimtex'
