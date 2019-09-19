@@ -3,13 +3,9 @@ set number " show numbering
 let g:powerline_pycmd="py3" " run powerline in python 3 
 set laststatus=2 " show powerline all the time
 
-" Window Splits
-set splitbelow " more natural window opening
+" More Natural Window Splits
+set splitbelow
 set splitright
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Nerdtree
 map <C-O> :NERDTreeToggle<CR>
@@ -40,5 +36,6 @@ Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
