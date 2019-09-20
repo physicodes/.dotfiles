@@ -18,11 +18,7 @@ map <C-O> :NERDTreeToggle<CR>
 
 " Latex
 let g:tex_flavor='latex'
-if on_linux()
-	let g:vimtex_view_general_viewer = 'zathura'
-elseif on_mac()
-	let g:vimtex_view_general_viewer = 'zathura'
-endif
+let g:vimtex_view_general_viewer = 'zathura'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
