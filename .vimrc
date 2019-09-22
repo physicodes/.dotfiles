@@ -1,5 +1,5 @@
 " UI
-set number " show numbering
+set nu rnu " show hybrid numbering
 set laststatus=2 " nescessary for lightline
 set noshowmode " status info redundant with lightline
 
