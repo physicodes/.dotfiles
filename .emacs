@@ -83,6 +83,9 @@
 ;; use evil keybindings in magit
 (require 'evil-magit)
 
+;; remap ";m" to magit-status
+(define-key evil-normal-state-map ";m" 'magit-status)
+
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
 
