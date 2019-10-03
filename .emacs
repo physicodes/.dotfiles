@@ -18,6 +18,7 @@
     material-theme
     linum-relative
     magit
+    exec-path-from-shell
     elpy
     flycheck
     py-autopep8))
@@ -47,6 +48,12 @@
 (setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; SHELL SETUP
+;; --------------------------------------
+
+;; Uses correct path in emacs (normally broken in OS X)
+(exec-path-from-shell-initialize)
 
 ;; GIT INTEGRATION
 ;; --------------------------------------
