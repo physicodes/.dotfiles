@@ -37,11 +37,11 @@
 
 (load-theme 'material t) ;; load material theme
 (require 'linum-relative) ;; relative line numbering
+(linum-relative-mode)
 (set-face-attribute 'default t :font "Space Mono" )
 (if (eq system-type 'darwin)
     (set-face-attribute 'default nil :height 140)  ;; 14pt if on Mac OS
     (set-face-attribute 'default nil :height 120)) ;; 12pt if on anything else
-(global-linum-mode t) ;; enable line numbers globally
 
 ;; save user customisations in different file b.c. they ugly
 (setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
