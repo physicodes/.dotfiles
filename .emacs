@@ -50,9 +50,9 @@
 (load-theme 'material t)
 
 ;; relative line numbering
+(global-linum-mode)
 (require 'linum-relative)
-(linum-on)
-(linum-relative-mode)
+(linum-relative-toggle)
 
 ;; set font and font size
 (set-face-attribute 'default t :font "Space Mono" )
