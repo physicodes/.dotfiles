@@ -24,6 +24,7 @@
     material-theme
     linum-relative
     magit
+    evil-magit
     exec-path-from-shell
     elpy
     flycheck
@@ -76,7 +77,11 @@
 ;; GIT INTEGRATION
 ;; --------------------------------------
 
+;; use magit with M-x magit-status
 (require 'magit)
+
+;; use evil keybindings in magit
+(require 'evil-magit)
 
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
