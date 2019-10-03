@@ -16,6 +16,8 @@
   '(better-defaults
     evil
     material-theme
+    linum-relative
+    magit
     elpy
     flycheck
     py-autopep8))
@@ -34,6 +36,7 @@
 (evil-mode 1)
 
 (load-theme 'material t) ;; load material theme
+(require 'linum-relative) ;; relative line numbering
 (set-face-attribute 'default t :font "Space Mono" )
 (if (eq system-type 'darwin)
     (set-face-attribute 'default nil :height 140)  ;; 14pt if on Mac OS
@@ -44,6 +47,11 @@
 (setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; GIT INTEGRATION
+;; --------------------------------------
+
+(require 'magit)
 
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
