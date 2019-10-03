@@ -3,15 +3,19 @@
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
+;; the package package must be installed (but it is by default)
 (require 'package)
 
+;; add the MELPA package repository
 (add-to-list 'package-archives
        '("melpa" . "http://melpa.org/packages/") t)
 
+;; use the package package
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;; packages to install
 (defvar myPackages
   '(better-defaults
     evil
@@ -23,6 +27,7 @@
     flycheck
     py-autopep8))
 
+;; install packages if not already installed
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
       (package-install package)))
@@ -31,21 +36,31 @@
 ;; BASIC CUSTOMISATION
 ;; --------------------------------------
 
-(setq inhibit-startup-message t) ;; hide the startup message
-(require 'better-defaults) ;; enable better defaults
-(require 'evil) ;; enable evil mode
+;; hide the startup message
+(setq inhibit-startup-message t)
+
+;; enable better defaults
+(require 'better-defaults)
+
+;; enable evil mode
+(require 'evil)
 (evil-mode 1)
 
-(load-theme 'material t) ;; load material theme
-(require 'linum-relative) ;; relative line numbering
+;; load material theme
+(load-theme 'material t)
+
+;; relative line numbering
+(require 'linum-relative)
 (linum-on)
 (linum-relative-mode)
+
+;; set font and font size
 (set-face-attribute 'default t :font "Space Mono" )
 (if (eq system-type 'darwin)
     (set-face-attribute 'default nil :height 140)  ;; 14pt if on Mac OS
     (set-face-attribute 'default nil :height 120)) ;; 12pt if on anything else
 
-;; save user customisations in different file b.c. they ugly
+;; save user customisations in different file b.c. they clutter init file.
 (setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -67,7 +82,7 @@
 ;; enable Elpy
 (elpy-enable)
 
-;; ipython
+;; use ipython interpreter
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
@@ -76,6 +91,5 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; automatically format in PEP-8 on save
+;; automatically format in PEP-8 with C-c C-r f
 (require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
