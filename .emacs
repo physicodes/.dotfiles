@@ -38,6 +38,7 @@
 
 (load-theme 'material t) ;; load material theme
 (require 'linum-relative) ;; relative line numbering
+(linum-on)
 (linum-relative-mode)
 (set-face-attribute 'default t :font "Space Mono" )
 (if (eq system-type 'darwin)
