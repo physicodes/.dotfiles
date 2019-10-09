@@ -22,7 +22,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
+    (evil-magit evil-org org-bullets magit linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -48,6 +48,39 @@
   :ensure t
   :config
   (linum-relative-toggle))
+
+;; GIT STUFF
+
+;; use magit with M-x magit-status
+(use-package magit
+  :ensure t
+  :config
+    (define-key evil-normal-state-map "M" 'magit-status))
+
+;; use evil keybindings in magit
+(use-package evil-magit
+  :ensure t)
+
+;; ORG MODE
+
+;; nicer unicode bullets
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;; evil mode bindings
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 ;; LEDGER
 
