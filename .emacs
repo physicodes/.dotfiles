@@ -1,20 +1,30 @@
 ;; INSTALL USE-PACKAGE
 
+;; need the package package in order to install the better use-package
 (require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+
+;; can't remember why this line is in here, no obvious effect
+;; (setq package-enable-at-startup nil)
+
+;; add package archives ** I MADE HTTP -> HTTPS, MAY BREAK STUFF **
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+;; initialise package package
 (package-initialize)
 
+;; automagically install use-package if not already installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; use the use-package package
 (eval-when-compile
   (require 'use-package))
 
 ;; CUSTOM VARIABLES
 
+;; who knows what this is really for, anyway emacs requires it so here it is
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,6 +63,7 @@
 ;; evil surround
 (use-package evil-surround
   :ensure t
+  :after evil
   :config
   (global-evil-surround-mode 1))
 
@@ -81,17 +92,19 @@
 (use-package magit
   :ensure t
   :config
-    (define-key evil-normal-state-map "M" 'magit-status))
+  (define-key evil-normal-state-map "M" 'magit-status))
 
 ;; use evil keybindings in magit
 (use-package evil-magit
-  :ensure t)
+  :ensure t
+  :after magit)
 
 ;; ORG MODE
 
 ;; nicer unicode bullets
 (use-package org-bullets
   :ensure t
+  :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
@@ -121,9 +134,9 @@
 (defun python-shell-send-whole-buffer ()
   (interactive)
   (let ((current-prefix-arg 4)) ;; emulate C-u
-    (call-interactively 'python-shell-send-buffer) ;; invoke align-regexp interactively
-    )
-  )
+    (call-interactively 'python-shell-send-buffer))) ;; emulate C-c C-c
+
+;; C-c r to run python script
 (use-package python
   :config
   (define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer))
