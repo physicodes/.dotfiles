@@ -124,5 +124,6 @@
     (call-interactively 'python-shell-send-buffer) ;; invoke align-regexp interactively
     )
   )
-
-(define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer)
+(use-package python
+  :config
+  (define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer))
