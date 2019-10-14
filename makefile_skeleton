@@ -1,0 +1,5 @@
+build: <source.c>
+	gcc -Wall -o <execuatable> <source.c>
+
+run: <executable>
+	./<executable>
