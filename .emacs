@@ -43,7 +43,7 @@
 ;; GENERAL EDITOR STUFF
 
 ;; hide the startup message
-(setq inhibit-startup-message t)
+;; (setq inhibit-startup-message t) will re-enable when I figure out how to unset C-j for interactive lisp
 
 ;; set font size
 (if (eq system-type 'darwin)
@@ -87,11 +87,11 @@
   (exec-path-from-shell-initialize))
 
 ;; vim-like movement between frames
-;; ideally would have just C-(h,j,k,l) but cannot rebind C-j
-(global-set-key (kbd "C-S-h") 'windmove-left)
-(global-set-key (kbd "C-S-l") 'windmove-right)
-(global-set-key (kbd "C-S-k") 'windmove-up)
-(global-set-key (kbd "C-S-j") 'windmove-down)
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-l") 'windmove-right)
+(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-j") 'windmove-down)
+;; need to unset C-j for InteractiveLisp buffers
 
 ;; GIT STUFF
 
