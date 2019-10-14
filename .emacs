@@ -32,6 +32,14 @@
 
 ;; GENERAL EDITOR STUFF
 
+;; hide the startup message
+(setq inhibit-startup-message t)
+
+;; set font size
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil :height 140)  ;; 14pt if on Mac OS
+    (set-face-attribute 'default nil :height 120)) ;; 12pt if on anything else
+
 ;; better defaults
 (use-package better-defaults
   :ensure t)
@@ -42,12 +50,30 @@
   :config
   (evil-mode 1))
 
+;; evil surround
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
 ;; relative line numbering
 (global-linum-mode)
 (use-package linum-relative
   :ensure t
   :config
   (linum-relative-toggle))
+
+;; color theme
+(use-package solarized-theme
+  :ensure t
+  :config
+  (load-theme 'solarized-dark t))
+
+;; Uses correct path in emacs (normally broken in OS X)
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; GIT STUFF
 
