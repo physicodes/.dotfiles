@@ -19,16 +19,19 @@
 
 ;; packages to install
 (defvar myPackages
-  '(better-defaults
+  '(paradox
+    better-defaults
     evil
     material-theme
     linum-relative
+    company
     magit
     evil-magit
     exec-path-from-shell
     elpy
     flycheck
-    py-autopep8))
+    py-autopep8
+    ledger-mode))
 
 ;; install packages if not already installed
 (mapc #'(lambda (package)
@@ -93,8 +96,8 @@
 (elpy-enable)
 
 ;; use ipython interpreter
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
+;; (setq python-shell-interpreter "ipython"
+;;       python-shell-interpreter-args "-i --simple-prompt")
 
 ;; realtime syntax highlighting
 (when (require 'flycheck nil t)
@@ -103,3 +106,9 @@
 
 ;; automatically format in PEP-8 with C-c C-r f
 (require 'py-autopep8)
+
+;; LEDGER CONFIGURATION
+;; --------------------------------------
+
+;; enable ledger-mode for .ledger files
+(require 'ledger-mode)
