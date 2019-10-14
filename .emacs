@@ -114,3 +114,15 @@
   :ensure t)
 (use-package evil-ledger
   :ensure t)
+
+;; PYTHON
+
+;; define function which will send whole buffer to shell
+(defun python-shell-send-whole-buffer ()
+  (interactive)
+  (let ((current-prefix-arg 4)) ;; emulate C-u
+    (call-interactively 'python-shell-send-buffer) ;; invoke align-regexp interactively
+    )
+  )
+
+(define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer)
