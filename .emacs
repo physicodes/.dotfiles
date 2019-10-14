@@ -86,6 +86,13 @@
   :config
   (exec-path-from-shell-initialize))
 
+;; vim-like movement between frames
+;; ideally would have just C-(h,j,k,l) but cannot rebind C-j
+(global-set-key (kbd "C-S-h") 'windmove-left)
+(global-set-key (kbd "C-S-l") 'windmove-right)
+(global-set-key (kbd "C-S-k") 'windmove-up)
+(global-set-key (kbd "C-S-j") 'windmove-down)
+
 ;; GIT STUFF
 
 ;; use magit with M-x magit-status
