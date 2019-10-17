@@ -32,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-magit evil-org org-bullets magit linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
+    (virtualenvwrapper evil-magit evil-org org-bullets magit linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -150,4 +150,11 @@
 ;; C-c r to run python script
 (use-package python
   :config
-  (define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer))
+  (define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer)
+  (setq python-shell-interpreter "python3"))
+
+(use-package virtualenvwrapper
+  :ensure t
+  :config
+  (venv-initialize-interactive-shells)
+  (venv-initialize-eshell))
