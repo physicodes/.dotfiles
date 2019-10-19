@@ -74,11 +74,12 @@
   :config
   (linum-relative-toggle))
 
-;; color theme
-(use-package solarized-theme
-  :ensure t
-  :config
-  (load-theme 'solarized-dark t))
+;; color theme (only in GUI Emacs)
+(when (display-graphic-p)
+    (use-package solarized-theme
+    :ensure t
+    :config
+    (load-theme 'solarized-dark t)))
 
 ;; Uses correct path in emacs (normally broken in OS X)
 (use-package exec-path-from-shell
