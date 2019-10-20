@@ -111,7 +111,8 @@
 
 ;; enable visual-line-mode by default in org mode
 (with-eval-after-load 'org       
-  (add-hook 'org-mode-hook #'visual-line-mode))
+  (add-hook 'org-mode-hook #'visual-line-mode)
+  (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
 
 ;; nicer unicode bullets
 (use-package org-bullets
