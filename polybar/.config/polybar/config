@@ -8,8 +8,8 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/mybar]
-monitor = DisplayPort-2
-font-0 = "Space Mono:pixelsize=12;0"
+# monitor = DisplayPort-2
+font-0 = "monofur:pixelsize=14;0"
 ;font-1 = "Roboto:size=11:weight=bold;2"
 ;font-2 = "Noto Sans:size=11;1"
 bottom = true
