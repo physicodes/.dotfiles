@@ -2,6 +2,8 @@
 
 **My system configuration files.**
 
+I manage my dotfiles using the symlink manager GNU stow. To symlink these files into their correct location on your system cd to this folder. Then use the command `stow <folder>` and stow will symlink the config files to the appropriate locations. E.g. `stow emacs` will create a link to `~/.emacs` while `stow i3` will symlink the configuration file to `~/.config/i3/config`.
+
 ## Emacs
 
 I used to use Vim, now I use Emacs. The switch was mostly motivated by org mode and the included Python and C modes. To help with the switch I still have evil bindings everywhere possible but will probably try and switch back to vanilla emacs bindings... eventually... My config is overall well documented and should be self explanatory.
