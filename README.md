@@ -1,6 +1,6 @@
 # .dotfiles
 
-**My desktop, terminal and shell configuration files.**
+**My system configuration files.**
 
 ## Emacs
 
