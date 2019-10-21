@@ -1,7 +1,8 @@
 " UI
 set nu rnu " show hybrid numbering
-set laststatus=2 " nescessary for lightline
-set noshowmode " status info redundant with lightline
+
+" Copy and paste
+set clipboard=unnamedplus
 
 " Window Splits
 set splitbelow
@@ -16,34 +17,15 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Nerdtree
 map <C-O> :NERDTreeToggle<CR>
 
-" Latex
-let g:tex_flavor='latex'
-let g:vimtex_view_general_viewer = 'zathura'
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 " Filetype specific setting
 filetype plugin on
 
 " Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
-Plug 'itchyny/lightline.vim'
-Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
-Plug 'lervag/vimtex'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dense-analysis/ale'
 
 call plug#end()
