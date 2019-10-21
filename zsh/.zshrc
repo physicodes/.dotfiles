@@ -6,6 +6,7 @@ if [[ "$(tty)" == '/dev/tty1' ]]; then
 fi
 
 # My aliases
+chpwd() ls --color
 alias emacs='emacs -nw'
 
 # Make wal changes persist
