@@ -1,0 +1,8 @@
+URxvt*scrollBar: False
+URxvt.font: xft:monofur:size=14
+
+! Copy and paste
+URxvt.perl-ext-common: ...,clipboard,...
+Urxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste

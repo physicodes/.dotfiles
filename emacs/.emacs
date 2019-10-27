@@ -74,11 +74,12 @@
   :config
   (linum-relative-toggle))
 
-;; color theme
-(use-package solarized-theme
-  :ensure t
-  :config
-  (load-theme 'solarized-dark t))
+;; color theme (only in GUI Emacs)
+(when (display-graphic-p)
+    (use-package solarized-theme
+    :ensure t
+    :config
+    (load-theme 'solarized-dark t)))
 
 ;; Uses correct path in emacs (normally broken in OS X)
 (use-package exec-path-from-shell
@@ -110,7 +111,8 @@
 
 ;; enable visual-line-mode by default in org mode
 (with-eval-after-load 'org       
-  (add-hook 'org-mode-hook #'visual-line-mode))
+  (add-hook 'org-mode-hook #'visual-line-mode)
+  (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
 
 ;; nicer unicode bullets
 (use-package org-bullets

@@ -7,23 +7,28 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+
 [bar/mybar]
-monitor = DisplayPort-2
-font-0 = "Space Mono:pixelsize=12;0"
+# monitor = DisplayPort-2
+font-0 = "monofur:pixelsize=14;0"
 ;font-1 = "Roboto:size=11:weight=bold;2"
 ;font-2 = "Noto Sans:size=11;1"
 bottom = true
 tray-position = right
-modules-right = date
+modules-right = temperature date
 modules-left = i3
 separator = " | "
-height = 3%
+height = 40
+padding-right = 2
 
 [module/date]
 type = internal/date
 interval = 1
 date =
-date-alt = " %Y-%m-%d"
+date-alt = "%Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 format-underline = #0a6cf5
