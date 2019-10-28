@@ -10,7 +10,11 @@ chpwd() ls --color
 alias emacs='emacs -nw'
 
 # Make wal changes persist
-(cat ~/.cache/wal/sequences &)
+WALPALETTE="~/.cache/wal/sequences"
+if [ -f "$WALPALETTE" ];
+then
+    (cat ~/.cache/wal/sequences &)
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
