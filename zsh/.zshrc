@@ -7,7 +7,7 @@ fi
 
 # My aliases
 chpwd() ls --color
-alias emacs='emacs -nw'
+# alias emacs='emacs -nw'
 
 # Make wal changes persist
 WALPALETTE="~/.cache/wal/sequences"
