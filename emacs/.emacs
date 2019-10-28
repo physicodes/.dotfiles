@@ -43,36 +43,24 @@
 ;; GENERAL EDITOR STUFF
 
 ;; hide the startup message
-;; (setq inhibit-startup-message t) will re-enable when I figure out how to unset C-j for interactive lisp
+;;  will re-enable when I figure out how to unset C-j for interactive lisp
 
 ;; set font size
 (if (eq system-type 'darwin)
-    (set-face-attribute 'default nil :height 140)  ;; 14pt if on Mac OS
+    ((set-face-attribute 'default nil :height 140) ;; 14pt if on Mac OS
+    (setq inhibit-startup-message t))              ;; and hide ugly startup
     (set-face-attribute 'default nil :height 120)) ;; 12pt if on anything else
 
 ;; better defaults
 (use-package better-defaults
   :ensure t)
 
-;; evil mode
+;; evil mode (just in case)
 (use-package evil
-  :ensure t
-  :config
-  (evil-mode 1))
+  :ensure t)
 
-;; evil surround
-(use-package evil-surround
-  :ensure t
-  :after evil
-  :config
-  (global-evil-surround-mode 1))
-
-;; relative line numbering
+;; turn on line numbering
 (global-linum-mode)
-(use-package linum-relative
-  :ensure t
-  :config
-  (linum-relative-toggle))
 
 ;; color theme (only in GUI Emacs)
 (when (display-graphic-p)
@@ -87,31 +75,25 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; vim-like movement between frames
-(global-set-key (kbd "C-h") 'windmove-left)
-(global-set-key (kbd "C-l") 'windmove-right)
-(global-set-key (kbd "C-k") 'windmove-up)
-(global-set-key (kbd "C-j") 'windmove-down)
-;; need to unset C-j for InteractiveLisp buffers
+;; movement between frames
+;; (global-set-key (kbd "C-h") 'windmove-left)
+;; (global-set-key (kbd "C-l") 'windmove-right)
+;; (global-set-key (kbd "C-k") 'windmove-up)
+;; (global-set-key (kbd "C-j") 'windmove-down)
 
 ;; GIT STUFF
 
 ;; use magit with M-x magit-status
 (use-package magit
-  :ensure t
-  :config
-  (define-key evil-normal-state-map "M" 'magit-status))
-
-;; use evil keybindings in magit
-(use-package evil-magit
-  :ensure t
-  :after magit)
+  :ensure t)
 
 ;; ORG MODE
 
-;; enable visual-line-mode by default in org mode
-(with-eval-after-load 'org       
+;; some org mode settings
+(with-eval-after-load 'org
+  ;; default to visual line mode
   (add-hook 'org-mode-hook #'visual-line-mode)
+  ;; fix cycling in terminal
   (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
 
 ;; nicer unicode bullets
@@ -121,24 +103,9 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-;; evil mode bindings
-(use-package evil-org
-  :ensure t
-  :after org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme)))
-  (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys))
-
 ;; LEDGER
 
 (use-package ledger-mode
-  :ensure t)
-(use-package evil-ledger
   :ensure t)
 
 ;; PYTHON
