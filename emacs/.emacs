@@ -32,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell virtualenvwrapper evil-magit evil-org org-bullets magit linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
+    (pyvenv flycheck cython-mode company company-mode material-theme exec-path-from-shell virtualenvwrapper evil-magit evil-org org-bullets magit linum-relative better-defaults evil-ledger ledger-mode evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -62,12 +62,17 @@
 ;; turn on line numbering
 (global-linum-mode)
 
-;; color theme (only in GUI Emacs)
-(when (display-graphic-p)
-    (use-package solarized-theme
-    :ensure t
-    :config
-    (load-theme 'solarized-dark t)))
+;; color theme
+(use-package material-theme
+:ensure t)
+
+(defun load-material-theme (frame)
+(select-frame frame)
+(load-theme 'material t))
+
+(if (daemonp)
+  (add-hook 'after-make-frame-functions #'load-material-theme)
+(load-theme 'material t))
 
 ;; Uses correct path in emacs (normally broken in OS X)
 (use-package exec-path-from-shell
@@ -86,6 +91,24 @@
 ;; use magit with M-x magit-status
 (use-package magit
   :ensure t)
+
+;; COMPANY MODE
+
+;; use company mode globally
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-idle-delay 0) ; no delay in suggestions
+  (setq company-minimum-prefix-length 1) ; suggestions after first char
+  (setq company-selection-wrap-around t)) ; wrap list
+
+;; SYNTAX CHECKING
+
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; ORG MODE
 
@@ -110,6 +133,9 @@
 
 ;; PYTHON
 
+(use-package cython-mode
+  :ensure t)
+
 ;; define function which will send whole buffer to shell
 (defun python-shell-send-whole-buffer ()
   (interactive)
@@ -122,8 +148,14 @@
   (define-key python-mode-map (kbd "C-c r") 'python-shell-send-whole-buffer)
   (setq python-shell-interpreter "python3"))
 
-(use-package virtualenvwrapper
-  :ensure t
+(use-package pyvenv
+  :ensure t)
+
+;; LATEX
+
+(use-package tex
+  :defer t
+  :ensure auctex
   :config
-  (venv-initialize-interactive-shells)
-  (venv-initialize-eshell))
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t))
