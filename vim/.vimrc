@@ -1,11 +1,23 @@
 " Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/base16-vim'
+" Supplement standard vim behaviour
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+
+" Base16 colorschemes
+Plug 'chriskempson/base16-vim'
+
 Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'scrooloose/nerdtree'
+
+" For syntax checking
+Plug 'dense-analysis/ale'
+
+" For autocomplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'deoplete-plugins/deoplete-jedi'
 
 call plug#end()
 
@@ -14,9 +26,6 @@ set nu rnu " show hybrid numbering
 syntax on
 set background=dark
 colorscheme base16-material
-
-" Copy and paste
-set clipboard=unnamedplus
 
 " Window Splits
 set splitbelow
@@ -33,3 +42,5 @@ map <C-O> :NERDTreeToggle<CR>
 
 " Filetype specific setting
 filetype plugin on
+
+let g:deoplete#enable_at_startup = 1
