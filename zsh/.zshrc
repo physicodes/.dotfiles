@@ -7,7 +7,6 @@ fi
 
 # My aliases
 chpwd() ls --color
-# alias emacs='emacs -nw'
 
 # Make wal changes persist
 WALPALETTE="~/.cache/wal/sequences"
@@ -15,9 +14,6 @@ if [ -f "$WALPALETTE" ];
 then
     (cat ~/.cache/wal/sequences &)
 fi
-
-# Set up virtualenvwrapper
-source /home/josh/.local/bin/virtualenvwrapper.sh
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
