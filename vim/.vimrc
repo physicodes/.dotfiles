@@ -1,5 +1,19 @@
+" Plugins (with vim-plug)
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
 " UI
 set nu rnu " show hybrid numbering
+syntax on
+set background=dark
+colorscheme base16-material
 
 " Copy and paste
 set clipboard=unnamedplus
@@ -19,13 +33,3 @@ map <C-O> :NERDTreeToggle<CR>
 
 " Filetype specific setting
 filetype plugin on
-
-" Plugins (with vim-plug)
-call plug#begin('~/.vim/plugged')
-
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
-Plug 'christoomey/vim-tmux-navigator'
-
-call plug#end()
