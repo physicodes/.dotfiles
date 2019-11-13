@@ -6,7 +6,8 @@ if [[ "$(tty)" == '/dev/tty1' ]]; then
 fi
 
 # My aliases
-chpwd() ls --color
+# chpwd() ls --color
+alias vim=nvim
 
 # Make wal changes persist
 WALPALETTE="~/.cache/wal/sequences"
@@ -19,7 +20,16 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/josh/.oh-my-zsh"
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export ZSH="/Users/josh/.oh-my-zsh"
+  ;;
+  Linux)
+    # commands for Linux go here
+    export ZSH="/home/josh/.oh-my-zsh"
+  ;;
+esac
 
 # Path to my scripts
 export PATH=$PATH:$HOME/Documents/Coding/scripts
