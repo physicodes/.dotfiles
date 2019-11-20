@@ -1,11 +1,36 @@
 " Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
+" Colorscheme
 Plug 'chriskempson/base16-vim'
+
+" Vim enhancements
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
-Plug 'christoomey/vim-tmux-navigator'
+
+" Filetree
 Plug 'scrooloose/nerdtree'
+
+" Navigation
+Plug 'christoomey/vim-tmux-navigator'
+
+" Org mode
+Plug 'jceb/vim-orgmode'
+
+" Linting
+Plug 'dense-analysis/ale'
+
+" Autocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Autocomplete for Python
+Plug 'deoplete-plugins/deoplete-jedi'
 
 call plug#end()
 
@@ -33,3 +58,11 @@ map <C-O> :NERDTreeToggle<CR>
 
 " Filetype specific setting
 filetype plugin on
+
+" Latex
+let g:tex_flavor='latex'
+let g:vimtex_view_general_viewer = 'zathura'
+
+" Autocomplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring=1
