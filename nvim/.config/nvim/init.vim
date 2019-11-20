@@ -8,11 +8,14 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 
+" Filetree
+Plug 'scrooloose/nerdtree'
+
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" Filetree
-Plug 'scrooloose/nerdtree'
+" Org mode
+Plug 'jceb/vim-orgmode'
 
 " Linting
 Plug 'dense-analysis/ale'
@@ -56,6 +59,16 @@ map <C-O> :NERDTreeToggle<CR>
 " Filetype specific setting
 filetype plugin on
 
+<<<<<<< HEAD
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+=======
+" Latex
+let g:tex_flavor='latex'
+let g:vimtex_view_general_viewer = 'zathura'
+
+" Autocomplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring=1
+>>>>>>> 6c98619c33d7cfe7f3383886175c1f10df262955
