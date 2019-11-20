@@ -5,10 +5,6 @@ if [[ "$(tty)" == '/dev/tty1' ]]; then
     exec startx
 fi
 
-# My aliases
-# chpwd() ls --color
-alias vim=nvim
-
 # Make wal changes persist
 WALPALETTE="~/.cache/wal/sequences"
 if [ -f "$WALPALETTE" ];
@@ -16,10 +12,10 @@ then
     (cat ~/.cache/wal/sequences &)
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# My aliases
+alias vim=nvim
 
-# Path to your oh-my-zsh installation.
+# OS specific configuration goes in here
 case `uname` in
   Darwin)
     # commands for OS X go here
@@ -28,9 +24,13 @@ case `uname` in
   Linux)
     # commands for Linux go here
     export ZSH="/home/josh/.oh-my-zsh"
+    chpwd() ls --color # ls after every cd
   ;;
 esac
 
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
 # Path to my scripts
 export PATH=$PATH:$HOME/Documents/Coding/scripts
 
@@ -98,7 +98,12 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	tmux
+)
+
+ZSH_TMUX_AUTOSTART="true"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
