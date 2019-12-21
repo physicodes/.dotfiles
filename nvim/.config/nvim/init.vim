@@ -8,6 +8,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 
+" Smart folding
+Plug 'pseewald/vim-anyfold'
+
 " Filetree
 Plug 'scrooloose/nerdtree'
 
@@ -42,6 +45,11 @@ colorscheme base16-material
 
 " Copy and paste
 set clipboard=unnamedplus
+
+" Folding
+filetype plugin indent on
+autocmd Filetype * AnyFoldActivate
+set foldlevel=0
 
 " Window Splits
 set splitbelow
