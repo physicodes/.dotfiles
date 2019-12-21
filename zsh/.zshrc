@@ -15,6 +15,11 @@ fi
 # My aliases
 alias vim=nvim
 
+# virtual environment info
+function virtualenv_info {
+[ $VIRTUAL_ENV ] && echo ‘(‘`basename $VIRTUAL_ENV`’) ‘
+}
+
 # OS specific configuration goes in here
 case `uname` in
   Darwin)
@@ -101,6 +106,9 @@ ZSH_THEME="af-magic"
 plugins=(
 	git
 	tmux
+	pyenv
+ 	virtualenv
+	pipenv
 )
 
 ZSH_TMUX_AUTOSTART="true"
@@ -132,3 +140,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
