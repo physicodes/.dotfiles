@@ -25,6 +25,7 @@ case `uname` in
   Darwin)
     # commands for OS X go here
     export ZSH="/Users/josh/.oh-my-zsh"
+    alias time=gtime
   ;;
   Linux)
     # commands for Linux go here
@@ -32,6 +33,8 @@ case `uname` in
     chpwd() ls --color # ls after every cd
   ;;
 esac
+
+export TIME="TIME\nreal %es\nuser %Us \nsys  %Ss \nMEMORY\n%MKB\nCPU\n%P"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
