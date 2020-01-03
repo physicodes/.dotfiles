@@ -38,6 +38,9 @@
 
 ;; GENERAL EDITOR STUFF
 
+;; set font
+(set-face-attribute 'default nil :font "Monofur-16" )
+
 ;; better defaults
 (use-package better-defaults
   :ensure t)
