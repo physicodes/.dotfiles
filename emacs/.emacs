@@ -28,9 +28,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (use-package))))
+ '(package-selected-packages (quote (evil-magit use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,12 +55,6 @@
 (use-package material-theme
 :ensure t)
 
-;; Uses correct path in emacs (normally broken in OS X)
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (exec-path-from-shell-initialize))
-
 ;; movement between frames
 (global-set-key (kbd "C-h") 'windmove-left)
 (global-set-key (kbd "C-l") 'windmove-right)
@@ -71,8 +63,11 @@
 
 ;; GIT STUFF
 
-;; use magit with M-x magit-status
+;; use magit with C-x g or M-x magit-status
 (use-package magit
+  :ensure t)
+
+(use-package evil-magit
   :ensure t)
 
 ;; ORG MODE
