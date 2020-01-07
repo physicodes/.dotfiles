@@ -52,7 +52,8 @@
   (evil-mode 1))
 
 ;; turn on line numbering
-(global-linum-mode)
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
 
 ;; color theme
 (use-package material-theme
@@ -83,11 +84,11 @@
   (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
 
 ;; nicer unicode bullets
-(use-package org-bullets
-  :ensure t
-  :after org
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+; (use-package org-bullets
+;   :ensure t
+;   :after org
+;   :config
+;   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package evil-org
   :ensure t
