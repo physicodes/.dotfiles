@@ -20,26 +20,13 @@
 (eval-when-compile
   (require 'use-package))
 
-;; CUSTOM VARIABLES
-
-;; who knows what this is really for, anyway emacs requires it so here it is
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (evil-magit use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 ;; GENERAL EDITOR STUFF
 
-;; set font
-(set-face-attribute 'default nil :font "Monofur-16" )
+;; color theme
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox-light-medium))
 
 ;; better defaults
 (use-package better-defaults
@@ -79,3 +66,18 @@
 ;  :after org
 ;  :config
 ;  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" default)))
+ '(package-selected-packages (quote (gruvbox-theme use-package magit better-defaults))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
