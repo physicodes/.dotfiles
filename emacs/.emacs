@@ -68,6 +68,11 @@
   ;; fix cycling in terminal
   (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
 
+;; CALENDAR / AGENDA MODE
+
+(setq diary-file '"~/Dropbox/Personal/diary")
+(setq calendar-date-style 'european)
+
 ;; nicer unicode bullets (rubbish with monofur)
 ;(use-package org-bullets
 ;  :ensure t
