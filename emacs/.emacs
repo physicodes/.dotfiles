@@ -22,11 +22,8 @@
 
 ;; GENERAL EDITOR STUFF
 
-;; color theme
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox-light-medium))
+;; font
+(set-face-attribute 'default nil :font "Droid Sans Mono")
 
 ;; better defaults
 (use-package better-defaults
@@ -49,11 +46,12 @@
 ;; ORG MODE
 
 ;; some org mode settings
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
 (with-eval-after-load 'org
   ;; default to visual line mode
-  (add-hook 'org-mode-hook #'visual-line-mode)
-  ;; fix cycling in terminal
-  (add-hook 'org-mode-hook (lambda () (define-key evil-normal-state-map (kbd "TAB") 'org-cycle))))
+  (add-hook 'org-mode-hook #'visual-line-mode))
 
 ;; nicer unicode bullets (rubbish with monofur)
 ;(use-package org-bullets
