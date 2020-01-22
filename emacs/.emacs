@@ -53,6 +53,11 @@
   ;; default to visual line mode
   (add-hook 'org-mode-hook #'visual-line-mode))
 
+;; CALENDAR / AGENDA MODE
+
+(setq diary-file '"~/Dropbox/Personal/diary")
+(setq calendar-date-style 'european)
+
 ;; nicer unicode bullets (rubbish with monofur)
 ;(use-package org-bullets
 ;  :ensure t
