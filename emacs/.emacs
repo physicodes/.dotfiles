@@ -102,6 +102,7 @@
  '(custom-safe-themes
    (quote
     ("2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" default)))
+ '(org-agenda-files (quote ("~/Dropbox/Personal/org/misc.org")))
  '(package-selected-packages (quote (gruvbox-theme use-package magit better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
