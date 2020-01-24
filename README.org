@@ -12,7 +12,7 @@ This command is aliased to `stow` in my `.zshrc`, therefore after the zsh config
 
 =stow <program-1> ...=
 
-Stow will then create symlinks to the config files in the appropriate locations. E.g. `stow emacs` will create a symlink to `~/.emacs` while `stow i3` will create a symlink to `~/.config/i3/config`.
+Stow will then create symlinks to the config files in the appropriate locations. E.g. `stow emacs` will create a symlink at `~/.emacs` while `stow i3` will create a symlink at `~/.config/i3/config`.
 
 ** Customisations
 
