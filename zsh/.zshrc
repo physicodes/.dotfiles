@@ -13,7 +13,8 @@ then
 fi
 
 # My aliases
-alias vim=nvim
+alias vim='nvim'
+alias stow='stow --dir=Dropbox/Coding/dotfiles --target=$HOME'
 
 # virtual environment info
 function virtualenv_info {
