@@ -14,6 +14,20 @@ This command is aliased to `stow` in my `.zshrc`, therefore after the zsh config
 
 Stow will then create symlinks to the config files in the appropriate locations. E.g. `stow emacs` will create a symlink at `~/.emacs` while `stow i3` will create a symlink at `~/.config/i3/config`.
 
+** Dependencies
+
+| Program     | In use? | Dependancies                                                     |
+|-------------+---------+------------------------------------------------------------------|
+| Alacritty   | Yes     | Monofur (font)                                                   |
+| Emacs       | Yes     | Fira Code (font)                                                 |
+| i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
+| Polybar     | No      | i3, Monofur (font)                                               |
+| Qutebrowser | No      | Pywal                                                            |
+| Tmux        | Yes     |                                                                  |
+| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
+| X11         | No      | Monofur (font)                                                   |
+| Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
+
 ** Customisations
 
 *** Alacritty
@@ -80,17 +94,3 @@ Get colour palette from pywal json.
 - Aliases
 - Load custom theme
   - Theme displays active python environment in place of host name
-
-** Dependencies
-
-| Program     | In use? | Dependancies                                                     |
-|-------------+---------+------------------------------------------------------------------|
-| Alacritty   | Yes     | Monofur (font)                                                   |
-| Emacs       | Yes     | Fira Code (font)                                                 |
-| i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
-| Polybar     | No      | i3, Monofur (font)                                               |
-| Qutebrowser | No      | Pywal                                                            |
-| Tmux        | Yes     |                                                                  |
-| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
-| X11         | No      | Monofur (font)                                                   |
-| Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
