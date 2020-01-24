@@ -37,6 +37,9 @@ esac
 
 export TIME="TIME\nreal %es\nuser %Us \nsys  %Ss \nMEMORY\n%MKB\nCPU\n%P"
 
+export PYENV=$HOME/.pyenv/versions
+export VENV=$HOME/.virtualenvs
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #

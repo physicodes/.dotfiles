@@ -1,3 +1,7 @@
+" Set neovim environments
+let g:python_host_prog = expand('$HOME/.virtualenvs/neovim2/bin/python')
+let g:python3_host_prog = expand('$HOME/.virtualenvs/neovim3/bin/python')
+
 " Plugins (with vim-plug)
 call plug#begin('~/.vim/plugged')
 
