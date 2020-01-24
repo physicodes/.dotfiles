@@ -1,3 +1,7 @@
+# af-magic-cust.zsh-theme
+#
+# Based on:
+#
 # af-magic.zsh-theme
 # Repo: https://github.com/andyfleming/oh-my-zsh
 # Direct Link: https://github.com/andyfleming/oh-my-zsh/blob/master/themes/af-magic.zsh-theme
@@ -21,9 +25,11 @@ eval my_orange='$FG[214]'
 # right prompt
 if type "virtualenv_prompt_info" > /dev/null
 then
-	RPROMPT='$FG[078]$(virtualenv_prompt_info)%{$reset_color%} $my_gray%n@%m%{$reset_color%}%'
+  # virtualenv plugin is installed
+  RPROMPT='$FG[078]$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
 else
-	RPROMPT='$my_gray%n@%m%{$reset_color%}%'
+  # virtualenv plugin not installed
+  RPROMPT='$my_gray%n@%m%{$reset_color%}%'
 fi
 
 # git settings
