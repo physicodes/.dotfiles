@@ -1,5 +1,8 @@
-build: <source.c>
-	gcc -Wall -o <execuatable> <source.c>
+IN = filename.c
+OUT = filename
 
-run: <executable>
-	./<executable>
+build: $IN
+	gcc -Wall -Werror -O1 -o $OUT $IN
+
+run: $OUT
+	./$OUT
