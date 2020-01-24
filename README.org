@@ -1,0 +1,96 @@
+* dotfiles
+
+*My system configuration files.*
+
+** The system
+
+I manage my dotfiles using the symlink manager GNU stow. To symlink files into their correct location on the system I use the command:
+
+=stow --dir=$HOME/Dropbox/Coding/dotfiles --target=$HOME <program-1> ...=
+
+This command is aliased to `stow` in my `.zshrc`, therefore after the zsh configuration is loaded, all that is required is:
+
+=stow <program-1> ...=
+
+Stow will then create symlinks to the config files in the appropriate locations. E.g. `stow emacs` will create a symlink to `~/.emacs` while `stow i3` will create a symlink to `~/.config/i3/config`.
+
+** Customisations
+
+*** Alacritty
+
+- Copy & paste
+- Look & feel
+  - Colours
+  - Font
+
+*** Emacs
+
+- Org agenda setup
+- Look & feel
+  - Font w/ ligatures
+  - Color theme
+- Magit (git porcelin)
+
+*** i3
+
+- Colours from Pywal via Xresources
+- Vim-like keybindings
+
+*** Makefile Skeleton
+
+Basic =build= and =run= commands for a single file script.
+
+*** Polybar
+
+Very simple status bar displaying:
+- i3 work space
+- CPU temp
+- time
+
+Colours are loaded from Xresources.
+
+*** Qutebrowser
+
+Get colour palette from pywal json.
+
+*** Tmux
+
+- 256 colour
+- Remap prefix key C-a to C-b.
+- Movement with C-{hjkl}
+- Splits with C-{-|}
+
+*** Vim
+
+- Colour scheme
+- Vim surround + targets
+- Filetree
+- Linting + autocomplete
+- Integrated movement with tmux
+
+*** X11 / URxvt
+
+- =.xinitrc= simply loads in Xresources and Xmodmap before starting i3.
+- =.Xresources= configures URxvt's scroll bar, font and copy/paste behaviour.
+
+*** Zsh
+
+- If no DE, start X server
+- Autostart tmux
+- Aliases
+- Load custom theme
+  - Theme displays active python environment in place of host name
+
+** Dependencies
+
+| Program     | In use? | Dependancies                                                     |
+|-------------+---------+------------------------------------------------------------------|
+| Alacritty   | Yes     | Monofur (font)                                                   |
+| Emacs       | Yes     | Fira Code (font)                                                 |
+| i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
+| Polybar     | No      | i3, Monofur (font)                                               |
+| Qutebrowser | No      | Pywal                                                            |
+| Tmux        | Yes     |                                                                  |
+| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
+| X11         | No      | Monofur (font)                                                   |
+| Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
