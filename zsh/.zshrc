@@ -14,7 +14,7 @@ fi
 
 # My aliases
 alias vim='nvim'
-alias stow='stow --dir=Dropbox/Coding/dotfiles --target=$HOME'
+alias stow='stow --dir=$HOME/Dropbox/Coding/dotfiles --target=$HOME'
 
 # virtual environment info
 function virtualenv_info {
@@ -108,11 +108,9 @@ ZSH_THEME="af-magic"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	tmux
-	pyenv
- 	virtualenv
-	pipenv
+	git # shows star when uncommited changes and provides some handy aliases
+	tmux # gives tmux autostart config variable used below
+ 	virtualenv # allows me to show current env in theme
 )
 
 ZSH_TMUX_AUTOSTART="true"
@@ -127,11 +125,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -144,4 +142,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# This is something to do with Haskell
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
