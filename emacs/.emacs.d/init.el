@@ -7,7 +7,7 @@
 ;; add package archives
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 ;; initialise package package
 (package-initialize)
@@ -88,7 +88,7 @@
   :ensure org-plus-contrib)
 
 (use-package org-contacts
-  :ensure nil
+  :ensure nil ; comes with org-plus-contrib
   :after org
   :custom (org-contacts-files '("~/Dropbox/Personal/org/contacts.org")))
 
