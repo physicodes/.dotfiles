@@ -23,6 +23,12 @@
 
 ;; GENERAL EDITOR STUFF
 
+;; colourscheme
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
+
 ;; font
 (when (window-system)
   (set-frame-font "Fira Code"))
