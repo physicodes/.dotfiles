@@ -7,6 +7,7 @@
 ;; add package archives
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 ;; initialise package package
 (package-initialize)
@@ -83,6 +84,14 @@
   ;; default to visual line mode
   (add-hook 'org-mode-hook #'visual-line-mode))
 
+(use-package org
+  :ensure org-plus-contrib)
+
+(use-package org-contacts
+  :ensure nil
+  :after org
+  :custom (org-contacts-files '("~/Dropbox/Personal/org/contacts.org")))
+
 ;; CALENDAR / AGENDA MODE
 
 (setq diary-file '"~/Dropbox/Personal/diary")
@@ -103,7 +112,7 @@
    (quote
     ("2b9dc43b786e36f68a9fd4b36dd050509a0e32fe3b0a803310661edb7402b8b6" default)))
  '(inhibit-startup-screen t)
- '(org-agenda-files (quote ("~/Dropbox/Personal/org/misc.org")))
+ '(org-agenda-files (quote ("~/Dropbox/Personal/org/agenda.org")))
  '(package-selected-packages (quote (gruvbox-theme use-package magit better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
