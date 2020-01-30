@@ -164,11 +164,6 @@
                 (list (list (list 12 27 y)
                             "Christmas Day Bank Holiday"))))))))
 
-;; CALENDAR / AGENDA MODE
-
-(setq diary-file '"~/Dropbox/Personal/diary")
-(setq calendar-date-style 'european)
-
 ;; nicer unicode bullets (rubbish with monofur)
 ;(use-package org-bullets
 ;  :ensure t
