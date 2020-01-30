@@ -164,12 +164,12 @@
                 (list (list (list 12 27 y)
                             "Christmas Day Bank Holiday"))))))))
 
-;; nicer unicode bullets (rubbish with monofur)
-;(use-package org-bullets
-;  :ensure t
-;  :after org
-;  :config
-;  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+; nicer unicode bullets (rubbish with monofur)
+(use-package org-bullets
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ; Load from
 (setq custom-file "~/.emacs.d/custom.el")
