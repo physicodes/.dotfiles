@@ -91,7 +91,10 @@
   (add-hook 'org-mode-hook #'visual-line-mode))
 
 (use-package org
-  :ensure org-plus-contrib)
+  :ensure org-plus-contrib
+  :config
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))))
 
 (use-package org-contacts
   :ensure nil ; comes with org-plus-contrib
