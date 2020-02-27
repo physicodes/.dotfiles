@@ -1,21 +1,32 @@
 #+TITLE: Emacs Config
-* Old config
+#+AUTHOR: Joshua Read
+#+DATE: <2020-02-27 Thu>
+
+* Work settings
+At work I can't install external packages due to security reasons. As a result I have a minimal config file, [[file:work.org][work.org]], using only core features as of Emacs 24. I am importing these settings first to avoid rewriting them in this config. 
+#+BEGIN_SRC emacs-lisp
+(require 'org)
+(org-babel-load-file
+  (expand-file-name "work.org" user-emacs-directory))
+#+END_SRC
+* Package installer
+I want to use the =use-package= package to manage my packages. First I add the package archives then ensure =use-package= is automatically installed which is slightly verbose.
 #+BEGIN_SRC emacs-lisp
 ;; INSTALL USE-PACKAGE
 
-;; need the package package in order to install the better use-package
+;; need the `package' package in order to install the better `use-package'
 (require 'package)
 (setq package-enable-at-startup nil) ;; faster startup
 
 ;; add package archives
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/")) ; need this for org-contrib
 
-;; initialise package package
+;; initialise `package' package
 (package-initialize)
 
-;; automagically install use-package if not already installed
+;; automagically install `use-package' if not already installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -23,16 +34,22 @@
 ;; use the use-package package
 (eval-when-compile
   (require 'use-package))
-
-;; GENERAL EDITOR STUFF
-
-;; colourscheme
+#+END_SRC
+* UI
+** Better defaults
+#+BEGIN_SRC emacs-lisp
+(use-package better-defaults
+  :ensure t)
+#+END_SRC
+** Colour scheme
+#+BEGIN_SRC emacs-lisp
 (use-package zenburn-theme
   :ensure t
   :config
   (load-theme 'zenburn t))
-
-;; font
+#+END_SRC
+** Font
+#+BEGIN_SRC emacs-lisp
 (when (window-system)
   (set-frame-font "Fira Code"))
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
@@ -64,58 +81,37 @@
   (dolist (char-regexp alist)
     (set-char-table-range composition-function-table (car char-regexp)
                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
-
-;; better defaults
-(use-package better-defaults
-  :ensure t)
-
-;;scroll window up/down by one line
-(global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
-(global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
-
-;; turn on line numbering
-;(global-display-line-numbers-mode)
-;(setq display-line-numbers-type 'relative)
-
-;; GIT STUFF
-
-;; use magit with C-x g or M-x magit-status
+#+END_SRC
+** Line numbering
+#+BEGIN_SRC emacs-lisp
+;; (global-display-line-numbers-mode)
+;; (setq display-line-numbers-type 'relative)
+#+END_SRC
+* Magit
+Bring up =magit-status= with C-x g.
+#+BEGIN_SRC emacs-lisp
 (use-package magit
   :ensure t)
+#+END_SRC
+* Org
+Most of my org config is in work.org but here are a couple of extra bits.
+#+BEGIN_SRC emacs-lisp
+;(use-package org
+;  :ensure org-plus-contrib)
 
-;; ORG MODE
-
-;; some org mode settings
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
-(with-eval-after-load 'org
-  ;; default to visual line mode
-  (add-hook 'org-mode-hook #'visual-line-mode))
-
-(use-package org
-  :ensure org-plus-contrib
-  :config
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)"))))
-
+; Import contacts' birthdays to display in agenda view
 (use-package org-contacts
-  :ensure nil ; comes with org-plus-contrib
   :after org
   :custom (org-contacts-files '("~/Dropbox/Personal/org/contacts.org")))
 
-; Import holidays to display in org agenda
+; Import holidays to display in agenda view
 (setq holiday-file "~/.emacs.d/holiday.el")
 (load holiday-file)
 
-; nicer unicode bullets (rubbish with monofur)
+; nicer unicode bullets
 (use-package org-bullets
   :ensure t
   :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
-; Load from
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
 #+END_SRC
