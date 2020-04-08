@@ -20,16 +20,16 @@ function virtualenv_info {
 [ $VIRTUAL_ENV ] && echo ‘(‘`basename $VIRTUAL_ENV`’) ‘
 }
 
+export ZSH="$HOME/.oh-my-zsh"
+
 # OS specific configuration goes in here
 case `uname` in
   Darwin)
     # commands for OS X go here
-    export ZSH="/Users/josh/.oh-my-zsh"
     alias time=gtime
   ;;
   Linux)
     # commands for Linux go here
-    export ZSH="/home/josh/.oh-my-zsh"
     chpwd() ls --color # ls after every cd
   ;;
 esac
