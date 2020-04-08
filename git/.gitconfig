@@ -1,0 +1,7 @@
+[user]
+	email = joshua-read@hotmail.co.uk
+	name = Josh Read
+[push]
+	default = simple
+[core]
+	editor = vim

@@ -4,93 +4,34 @@
 
 ** The system
 
-I manage my dotfiles using the symlink manager GNU stow. To symlink files into their correct location on the system I use the command:
+I manage my dotfiles using the symlink manager GNU stow. To
+symlink files into their correct location on the system I
+use the command:
 
-=stow --dir=$HOME/Dropbox/Coding/dotfiles --target=$HOME <program-1> ...=
+=stow --dir=/**/dotfiles --target=$HOME <program-1> ...=
 
-This command is aliased to `stow` in my `.zshrc`, therefore after the zsh configuration is loaded, all that is required is:
+Where =/**/dotfiles= is the path to this repository on the
+computer. The default behaviour of stow (i.e. no =--dir= or
+=--target=) is to find the folder in the current directory
+and create symlinks to its contents in the folder above.
+Therefore by =cd=ing into this repo and running stow on a
+folder without any flags, the config files are linked to the
+appropriate locations. E.g. `stow emacs` will create a
+symlink at `~/.emacs` while `stow i3` will create a symlink
+at `~/.config/i3/config`.
 
-=stow <program-1> ...=
-
-Stow will then create symlinks to the config files in the appropriate locations. E.g. `stow emacs` will create a symlink at `~/.emacs` while `stow i3` will create a symlink at `~/.config/i3/config`.
-
-** Dependencies
+** Config Dependencies
 
 | Program     | In use? | Dependancies                                                     |
 |-------------+---------+------------------------------------------------------------------|
 | Alacritty   | Yes     | Monofur (font)                                                   |
 | Emacs       | Yes     | Fira Code (font)                                                 |
+| Git         | Yes     |                                                                  |
 | i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
+| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
 | Polybar     | No      | i3, Monofur (font)                                               |
 | Qutebrowser | No      | Pywal                                                            |
 | Tmux        | Yes     |                                                                  |
-| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
+| Vim         | Yes     |                                                                  |
 | X11         | No      | Monofur (font)                                                   |
 | Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
-
-** Customisations
-
-*** Alacritty
-
-- Copy & paste
-- Look & feel
-  - Colours
-  - Font
-
-*** Emacs
-
-- Org agenda setup
-- Look & feel
-  - Font w/ ligatures
-  - Color theme
-- Magit (git porcelin)
-
-*** i3
-
-- Colours from Pywal via Xresources
-- Vim-like keybindings
-
-*** Makefile Skeleton
-
-Basic =build= and =run= commands for a single file script.
-
-*** Polybar
-
-Very simple status bar displaying:
-- i3 work space
-- CPU temp
-- time
-
-Colours are loaded from Xresources.
-
-*** Qutebrowser
-
-Get colour palette from pywal json.
-
-*** Tmux
-
-- 256 colour
-- Remap prefix key C-a to C-b.
-- Movement with C-{hjkl}
-- Splits with C-{-|}
-
-*** Vim
-
-- Colour scheme
-- Vim surround + targets
-- Filetree
-- Linting + autocomplete
-- Integrated movement with tmux
-
-*** X11 / URxvt
-
-- =.xinitrc= simply loads in Xresources and Xmodmap before starting i3.
-- =.Xresources= configures URxvt's scroll bar, font and copy/paste behaviour.
-
-*** Zsh
-
-- If no DE, start X server
-- Autostart tmux
-- Aliases
-- Load custom theme
-  - Theme displays active python environment in place of host name
