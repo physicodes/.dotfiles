@@ -24,3 +24,7 @@ au BufNewFile,BufRead *.py *.rs
   \ set softtabstop=4
   \ set shiftwidth=4
   \ set textwidth=79
+" External Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
