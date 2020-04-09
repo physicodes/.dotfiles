@@ -1,16 +1,18 @@
 # My additions
 
 # Autostart X at login
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-    exec startx
-fi
+# (for systems with no login manager)
+# if [[ "$(tty)" == '/dev/tty1' ]]; then
+#     exec startx
+# fi
 
 # Make wal changes persist
-WALPALETTE="~/.cache/wal/sequences"
-if [ -f "$WALPALETTE" ];
-then
-    (cat ~/.cache/wal/sequences &)
-fi
+# (for systems taking the colorscheme from pywal)
+# WALPALETTE="~/.cache/wal/sequences"
+# if [ -f "$WALPALETTE" ];
+# then
+#     (cat ~/.cache/wal/sequences &)
+# fi
 
 # My aliases
 alias vim='nvim'
