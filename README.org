@@ -14,7 +14,7 @@ and optionally
 4) Clone dotfiles repository from GitHub (optionally doing
 so via ssh by uploading public key to GH account).
 5) Stow git, zsh and optionally any other configuration
-files.
+files (more details on this in [[*About Stow]]).
 
 ** Config Dependencies
 
