@@ -2,7 +2,37 @@
 
 *My system configuration files.*
 
-** The system
+** Getting Set Up
+
+1) Update package repositories and upgrade system.
+2) Install git, stow and zsh using package manager.
+  - Optional: Install openssh and generate RSA key with
+    =ssh-keygen= for a headstart on GitHub setup.
+3) Install [[https://github.com/ohmyzsh/ohmyzsh][OhMyZsh]]
+and optionally
+[[https://github.com/junegunn/vim-plug][Vim-Plug]].
+4) Clone dotfiles repository from GitHub (optionally doing
+so via ssh by uploading public key to GH account).
+5) Stow git, zsh and optionally any other configuration
+files.
+
+** Config Dependencies
+
+| Program     | In use? | Dependancies                                                     |
+|-------------+---------+------------------------------------------------------------------|
+| Alacritty   | Yes     | Monofur (font)                                                   |
+| Emacs       | Yes     | Fira Code (font)                                                 |
+| Git         | Yes     |                                                                  |
+| i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
+| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
+| Polybar     | No      | i3, Monofur (font)                                               |
+| Qutebrowser | No      | Pywal                                                            |
+| Tmux        | Yes     |                                                                  |
+| Vim         | Yes     |                                                                  |
+| X11         | No      | Monofur (font)                                                   |
+| Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
+
+** About Stow
 
 I manage my dotfiles using the symlink manager GNU stow. To
 symlink files into their correct location on the system I
@@ -22,19 +52,3 @@ flags, the config files are linked to the appropriate
 locations. E.g. =stow emacs= will create a symlink at
 =~/.emacs= while =stow i3= will create a symlink at
 =~/.config/i3/config=.
-
-** Config Dependencies
-
-| Program     | In use? | Dependancies                                                     |
-|-------------+---------+------------------------------------------------------------------|
-| Alacritty   | Yes     | Monofur (font)                                                   |
-| Emacs       | Yes     | Fira Code (font)                                                 |
-| Git         | Yes     |                                                                  |
-| i3          | No      | Compton, dmenu, Monofur (font), Polybar, Pywal, xbanish          |
-| Neovim      | Yes     | vim-plug, jedi (for python editing), zathura (for latex editing) |
-| Polybar     | No      | i3, Monofur (font)                                               |
-| Qutebrowser | No      | Pywal                                                            |
-| Tmux        | Yes     |                                                                  |
-| Vim         | Yes     |                                                                  |
-| X11         | No      | Monofur (font)                                                   |
-| Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
