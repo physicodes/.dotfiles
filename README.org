@@ -12,13 +12,16 @@ use the command:
 
 Where =/**/dotfiles= is the path to this repository on the
 computer. The default behaviour of stow (i.e. no =--dir= or
-=--target=) is to find the folder in the current directory
-and create symlinks to its contents in the folder above.
-Therefore by =cd=ing into this repo and running stow on a
-folder without any flags, the config files are linked to the
-appropriate locations. E.g. `stow emacs` will create a
-symlink at `~/.emacs` while `stow i3` will create a symlink
-at `~/.config/i3/config`.
+=--target= flags) is to find <program-1> in the current
+directory and create symlinks to its contents in the folder
+above.
+
+Usually I clone this repo to my $HOME directory, therefore
+by =cd=ing into it and running stow on a folder without any
+flags, the config files are linked to the appropriate
+locations. E.g. =stow emacs= will create a symlink at
+=~/.emacs= while =stow i3= will create a symlink at
+=~/.config/i3/config=.
 
 ** Config Dependencies
 
