@@ -14,7 +14,8 @@
 4) Clone dotfiles repository from GitHub (optional:
    clone via ssh by uploading public key to GH account).
 5) Stow git, zsh and optionally any other configuration
-   files (more details on this in [[*About Stow]]).
+   files (more details on this in the '[[About Stow]]'
+   section).
 
 ** Config Dependencies
 
@@ -32,7 +33,7 @@
 | X11         | No      | Monofur (font)                                                   |
 | Zsh         | Yes     | ohmyzsh, git, tmux, virtualenv                                   |
 
-** About Stow
+** About Stow <<About Stow>>
 
 I manage my dotfiles using the symlink manager GNU stow. To
 symlink files into their correct location on the system I
