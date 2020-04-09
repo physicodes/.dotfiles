@@ -11,8 +11,8 @@
 3) Install [[https://github.com/ohmyzsh/ohmyzsh][OhMyZsh]]
    and optionally
    [[https://github.com/junegunn/vim-plug][Vim-Plug]].
-4) Clone dotfiles repository from GitHub (optional:
-   clone via ssh by uploading public key to GH account).
+4) Clone dotfiles repository from GitHub (optionally doing
+   so via ssh by uploading public key to GH account).
 5) Stow git, zsh and optionally any other configuration
    files (more details on this in the '[[About Stow]]'
    section).
