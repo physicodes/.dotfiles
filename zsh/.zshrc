@@ -15,7 +15,7 @@
 # fi
 
 # My aliases
-alias vim='nvim'
+# alias vim='nvim'
 
 # virtual environment info
 function virtualenv_info {
