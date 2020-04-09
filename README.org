@@ -9,12 +9,12 @@
   - Optional: Install openssh and generate RSA key with
     =ssh-keygen= for a headstart on GitHub setup.
 3) Install [[https://github.com/ohmyzsh/ohmyzsh][OhMyZsh]]
-and optionally
-[[https://github.com/junegunn/vim-plug][Vim-Plug]].
+   and optionally
+   [[https://github.com/junegunn/vim-plug][Vim-Plug]].
 4) Clone dotfiles repository from GitHub (optionally doing
-so via ssh by uploading public key to GH account).
+   so via ssh by uploading public key to GH account).
 5) Stow git, zsh and optionally any other configuration
-files (more details on this in [[*About Stow]]).
+   files (more details on this in [[*About Stow]]).
 
 ** Config Dependencies
 
