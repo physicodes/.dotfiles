@@ -20,11 +20,6 @@ export PATH=$HOME/anaconda3/bin:$HOME/miniconda3/bin:$PATH
 export PYENV=$HOME/.pyenv/versions
 export VENV=$HOME/.virtualenvs
 
-# virtual environment info
-function virtualenv_info {
-[ $VIRTUAL_ENV ] && echo ‘(‘`basename $VIRTUAL_ENV`’) ‘
-}
-
 plugins=(
 	git # shows star when uncommited changes and provides some handy aliases
 	tmux # gives tmux autostart config variable used below
