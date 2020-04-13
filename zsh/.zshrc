@@ -15,7 +15,6 @@ esac
 export TIME="TIME\nreal %es\nuser %Us \nsys  %Ss \nMEMORY\n%MKB\nCPU\n%P"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/anaconda3/bin:$HOME/miniconda3/bin:$PATH
 
 export PYENV=$HOME/.pyenv/versions
 export VENV=$HOME/.virtualenvs
