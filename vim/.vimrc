@@ -8,13 +8,14 @@ set rnu
 filetype plugin indent on
 set listchars=eol:¶,trail:•,tab:▸\
 set scrolloff=999
-set showmatch
+highlight ColorColumn ctermbg=7 guibg=lightgrey
 syntax on
 " General Editing
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set textwidth=60
+set colorcolumn=60
 set expandtab
 set autoindent
 set fileformat=unix
@@ -24,6 +25,7 @@ au BufNewFile,BufRead *.py *.rs
   \ set softtabstop=4
   \ set shiftwidth=4
   \ set textwidth=79
+  \ set colorcolumn=79
 " External Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
