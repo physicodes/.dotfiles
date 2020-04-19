@@ -7,7 +7,6 @@ set nu rnu
 " UI
 filetype plugin indent on
 set listchars=eol:¶,trail:•,tab:▸\
-set scrolloff=999
 highlight ColorColumn ctermbg=7 guibg=lightgrey
 syntax on
 " General Editing
