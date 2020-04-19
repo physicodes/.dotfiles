@@ -3,7 +3,7 @@ set autoread
 set clipboard=unnamed,unnamedplus
 set encoding=utf-8
 set mouse=a
-set rnu
+set nu rnu
 " UI
 filetype plugin indent on
 set listchars=eol:¶,trail:•,tab:▸\
